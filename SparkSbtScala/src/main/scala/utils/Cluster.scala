@@ -12,6 +12,8 @@ class Cluster {
 
   def setSparkConf(masterUrl: String, appName: String): Cluster = {
     this.sConf = new SparkConf().setMaster(masterUrl).setAppName(appName)
+    this.sConf.set("spark.task.maxDirectResultSize", "10g")
+    this.sConf.set("spark.sql.autoBroadcastJoinThreshold", "10g")
     this
   }
 

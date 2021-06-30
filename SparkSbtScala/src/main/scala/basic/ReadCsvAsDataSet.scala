@@ -4,7 +4,6 @@ package basic
 import org.apache.spark.sql.SparkSession
 
 import java.nio.file.Paths
-import scala.reflect.io.File
 
 object ReadCsvAsDataSet {
   def main(args: Array[String]): Unit = {
@@ -17,6 +16,8 @@ object ReadCsvAsDataSet {
     val inputFileURI = path.toString;
 
     println("input data file:- " + inputFileURI)
+
+    val countryMetadataCsv = Paths.get(dataDir + "/brand_metadata.csv").toString
 
 
     val sparkSession =
@@ -34,21 +35,28 @@ object ReadCsvAsDataSet {
 
     bikeDataSet.show(10)
 
-    val bikes = bikeDataSet.groupBy("bike_name").count().alias("ByName")
-    bikes.show()
+    //    val bikes = bikeDataSet.groupBy("bike_name").count().alias("ByName")
+    //    bikes.show()
 
-    val bikesOutput = outDir + "/bikes"
-    val outDirPath = Paths.get(bikesOutput)
-    new File(outDirPath.toFile).deleteRecursively()
-
-    bikes
-      .coalesce(1)
-      .write
-      .option("header", "true")
-      .format("com.databricks.spark.csv")
-      .save(outDir + "/bikes")
+    //    val bikesOutput = outDir + "/bikes"
+    //    val outDirPath = Paths.get(bikesOutput)
+    //    new File(outDirPath.toFile).deleteRecursively()
+    //
+    //    bikes
+    //      .coalesce(1)
+    //      .write
+    //      .option("header", "true")
+    //      .format("com.databricks.spark.csv")
+    //      .save(outDir + "/bikes")
 
     //bikeDataSet.groupBy("bike_name").count().write.format("com.databricks.spark.csv").save(outDir + "/bikes")
+
+
+    val countryDF = sparkSession.read.format("csv").option("header", "true").load(countryMetadataCsv)
+    countryDF.show(10)
+    //
+    val joinedDF = bikeDataSet.join(countryDF).where(bikeDataSet("brand") === countryDF("brand"))
+    joinedDF.show()
 
 
   }
