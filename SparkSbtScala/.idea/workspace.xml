@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8c187e5-f089-4e07-a5bd-38498ec8585d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/next/JoinEx.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/next/FilterEx.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/basic/ReadCsvAsDataSet.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/basic/ReadCsvAsDataSet.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/next/CsvAggregationsDF.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/next/CsvAggregationsDF.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/utils/Cluster.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/utils/Cluster.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +46,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="Application.JoinEx">
+  <component name="RunManager" selected="Application.FilterEx">
     <configuration name="CsvAggregations" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.muks.example.next.CsvAggregationsDF" />
+      <module name="SparkSbtScala" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.muks.example.next.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilterEx" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="org.muks.example.next.FilterEx" />
       <module name="SparkSbtScala" />
       <extension name="coverage">
         <pattern>
@@ -104,6 +114,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FilterEx" />
         <item itemvalue="Application.JoinEx" />
         <item itemvalue="Application.CsvAggregations" />
         <item itemvalue="Application.ReadCsvAsDataSet" />
